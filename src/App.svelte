@@ -219,12 +219,12 @@
   }
 
   .red-team {
-    background-color: red;
+    background-color: rgb(236, 62, 39);
     color: white;
   }
 
   .blue-team {
-    background-color: blue;
+    background-color: rgb(60, 124, 243);
     color: white;
   }
  
