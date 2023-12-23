@@ -224,7 +224,7 @@
   }
 
   .blue-team {
-    background-color: rgb(60, 124, 243);
+    background-color: blue;
     color: white;
   }
  
