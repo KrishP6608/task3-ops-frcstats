@@ -145,6 +145,7 @@
                   </tr>
                 </tbody>
               </table>
+              <br>
               {#if event.video}
                 <Youtube id={event.video}/>
               {/if}
@@ -160,113 +161,151 @@
 </main>
 
 <style>
-  main {
-    background-color: #f0f4f8;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
+main {
+  background-color: #f0f4f8;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-  .title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    color: black;
-  }
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  color: black;
+}
 
-  .search-bar {
-    display: flex;
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 20px;
-    background-color: #ccc;
-    }
+.search-bar {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  background-color: #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
 
-    .search-bar input[type="text"] {
-      border: 2px solid #ccc;
-      border-radius: 4px 0 0 4px;
-      outline: none;
-      flex: 1;
-      padding: 10px;
-      font-size: 16px;
-      background-color: #ccc;
-      color: black;
-    }
+.search-bar input[type="text"] {
+  border: none;
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  color: black;
+  background-color: #e6e6e6;
+}
 
-  .search-bar button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+.search-bar button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .search-bar button:hover {
-    background-color: #45a049;
-  }
+.search-bar button:hover {
+  background-color: #45a049;
+}
 
-  .event-group {
-    margin-bottom: 20px;
-  }
+.event-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 30px;
+}
 
+.event {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.red-team {
+  background-color: rgb(255, 102, 102);
+  color: black;
+  font-weight: bold;
+}
+
+.blue-team {
+  background-color: rgb(102, 163, 255);
+  color: black;
+  font-weight: bold;
+}
+
+.scores tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.scores tr:nth-child(even) {
+  background-color: #fff;
+}
+
+@media (max-width: 768px) {
   .event {
-    margin: 20px 0;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: black;
+    padding: 15px;
   }
 
   table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
+    font-size: 14px;
   }
 
   th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-    color: #333;
-    font-weight: bold;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-bar {
+    flex-direction: column;
+    width: 90%;
   }
 
-  th {
-    background-color: #f2f2f2;
-    color: #333;
+  .search-bar input[type="text"],
+  .search-bar button {
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 100%;
   }
 
-  .red-team {
-    background-color: rgb(255, 102, 102);
-    color: black;
-    font-weight: bold;
+  .event {
+    padding: 10px;
   }
 
-  .blue-team {
-    background-color: rgb(102, 163, 255);
-    color: black;
-    font-weight: bold;
+  table {
+    font-size: 12px;
   }
+}
 
-  @media (max-width: 600px) {
-    .search-bar {
-      flex-direction: column;
-    }
-
-    .search-bar input[type="text"],
-    .search-bar button {
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-
-    .search-bar button {
-      border-radius: 4px;
-    }
-  }
 </style>
