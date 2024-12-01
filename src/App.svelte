@@ -69,7 +69,7 @@
 
   {#if eventData}
     <div>
-      <h2>Event Information</h2>
+      <h2 style="color: black;">Event Information</h2>
       {#each groupEvents(eventData) as group}
         <div class="event-group">
           {#each group.events as event}
@@ -155,77 +155,118 @@
       <!-- <pre>{JSON.stringify(eventData, null, 2)}</pre> -->
     </div>
   {:else if eventId !== ''}
-    <p>You seem to have put the wrong id (Click the search button if you entered a correct id, otherwise double check that you entered the correct id)</p>
+    <p style="color: black;">You seem to have put the wrong id (Click the search button if you entered a correct id, otherwise double check that you entered the correct id)</p>
   {/if}
 </main>
 
 <style>
   main {
-   background-color: teal;
-   width: 100%;
-   height: 100%;
- }
+    background-color: #f0f4f8;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
 
- .title {
-  align-items: top;
- }
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    color: black;
+  }
 
- .search-bar {
-   display: flex;
- }
+  .search-bar {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    background-color: #ccc;
+    }
 
- .search-bar input[type="text"] {
-   border: solid black;
-   border-radius: 1px;
-   outline: none;
-   flex: 1;
-   padding: 10px;
-   font-size: 16px;
- }
+    .search-bar input[type="text"] {
+      border: 2px solid #ccc;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #ccc;
+      color: black;
+    }
 
- .search-bar button {
-   background-color: #4caf50;
-   padding: 10px;
- }
- .event-group {
+  .search-bar button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-bar button:hover {
+    background-color: #45a049;
+  }
+
+  .event-group {
     margin-bottom: 20px;
   }
 
   .event {
-    margin: 20px;
-    padding: 10px;
+    margin: 20px 0;
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: black;
   }
 
   table {
     border-collapse: collapse;
     width: 100%;
+    margin-bottom: 20px;
   }
 
-  th,
-  td {
+  th, td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px;
     text-align: left;
-    color: black;
+    color: #333;
+    font-weight: bold;
   }
 
   th {
     background-color: #f2f2f2;
-    color: black;
+    color: #333;
   }
 
   .red-team {
-    background-color: rgb(236, 62, 39);
-    color: white;
+    background-color: rgb(255, 102, 102);
+    color: black;
+    font-weight: bold;
   }
 
   .blue-team {
-    background-color: blue;
-    color: white;
+    background-color: rgb(102, 163, 255);
+    color: black;
+    font-weight: bold;
   }
- 
+
+  @media (max-width: 600px) {
+    .search-bar {
+      flex-direction: column;
+    }
+
+    .search-bar input[type="text"],
+    .search-bar button {
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .search-bar button {
+      border-radius: 4px;
+    }
+  }
 </style>
